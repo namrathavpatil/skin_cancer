@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:rgb(193, 193, 198); max-width: 500px;margin-top: 500p; margin: auto;border-style:solid;
+border-width: 3px;
+border-left-width: 10px;
+border-right-width: 10px;
+border-color: black;" >
+    <h1>Name - {{context.something}}</h1>
+    <img src="{{emp.emp_image.url}}" alt="Smiley face" width="250" height="250">
+    <br />
+    <a href="{% url 'home' %}">Go Back!!!</a>
+</body>
+
+</html>
