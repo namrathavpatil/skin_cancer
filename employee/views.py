@@ -19,7 +19,7 @@ class EmployeeImage(TemplateView):
         form = EmployeeForm(request.POST, request.FILES)
 
         if form.is_valid():
-            obj = form.save()
+
             print(form.cleaned_data.get('name'))
             im = (form.cleaned_data.get('emp_image'))
 
