@@ -31,12 +31,12 @@ class EmployeeImage(TemplateView):
                 import tensorflow as tf
                 print("fsdfkdhfjsdhckjxcvzdfjkhvkjxfbgvkjxdv")
                 # Reading the model from JSON file
-                with open("./resnet50.json", 'r') as json_file:
+                with open("./model (1).json", 'r') as json_file:
                     json_savedModel = json_file.read()
                 # load the model architecture
                 model_j = tf.keras.models.model_from_json(json_savedModel)
                 model_j.summary()
-                model_j.load_weights("./resnet50.h5")
+                model_j.load_weights("./model (1).h5")
                 # Compiling the model
                 model_j.compile(loss='sparse_categorical_crossentropy',
                                 optimizer='SGD',
@@ -56,10 +56,14 @@ class EmployeeImage(TemplateView):
                 print(y_pred)
                 for i in y_pred:
                     print("%.8f" % i[0])
-                    if i[0] > 0.5:
+                    a = str(i[0])
+                    b = str(i[1])
+                    print(float(a[:4]))
+                    print(float(b[:4]))
+                    if float(a[:4]) > float(b[:4]):
                         return("Benign")
                     else:
-                        return(q, "Malignant")
+                        return("Malignant")
                 q += 1
 
             a = load_model(im)
